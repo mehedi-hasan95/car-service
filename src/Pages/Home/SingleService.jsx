@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const SingleService = ({ss}) => {
-    const {title, img, price} = ss;
+    const {title, img, price, _id} = ss;
     return (
         <div className="card card-compact w-96 bg-base-100 shadow-xl">
             <figure><img src={img} alt="Shoes" /></figure>
@@ -9,7 +10,7 @@ const SingleService = ({ss}) => {
                 <h2 className="card-title">{title}</h2>
                 <div className="card-actions justify-between items-center">
                     <p className='text-[#FF3811] text-xl font-semibold'>Price: {price}</p>
-                    <button className="btn btn-primary">Buy Now</button>
+                    <Link to={`/checkout/${_id}`} className="btn btn-primary">Buy Now</Link>
                 </div>
             </div>
         </div>
