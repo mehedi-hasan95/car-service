@@ -5,7 +5,7 @@ import { authContext } from '../context/AuthProvider';
 
 
 const Register = () => {
-    const {emailLogin} = useContext(authContext);
+    const {createUser} = useContext(authContext);
 
     const handleRegister = e => {
         e.preventDefault();
@@ -14,12 +14,14 @@ const Register = () => {
         const email = form.username.value;
         const password = form.password.value;
 
-        emailLogin(email, password)
+        createUser(email, password)
         .then(result => {
             const user = result.user;
             console.log(user);
         })
         .catch(err => console.error(err));
+
+        form.reset();
         
     }
     return (
